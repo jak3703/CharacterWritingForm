@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style type="text/css" rel="stylesheet">
+            .grid-container{
+                display: grid;
+                grid-template-areas: auto auto auto;
+                border: 2px solid lightgrey;
+            }
+            
+            label textarea{
+                vertical-align: middle;
+            }
+
+            label, textarea{
+                border: 4px solid lightgrey;
+            }
+            
+            textarea{
+                height: 6em;
+            }
+            
+            label{
+                padding-top: 1.9em;
+                padding-bottom: 2.1em;
+            }
+            
+        </style>
+    </head>
+    <body>
+        <h1>Character Information</h1>
+        <div>
+            <form id="info">
+                <div class="grid-container">
+                    <div>
+                        <label for="name">Name/Aliases
+                            <textarea id="name" cols="80em"></textarea>
+                        </label>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </body>
+</html>
