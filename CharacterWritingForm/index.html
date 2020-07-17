@@ -4,7 +4,7 @@
         <style type="text/css" rel="stylesheet">
             .grid-container{
                 display: grid;
-                grid-template-areas: auto auto auto;
+                grid-template-columns: auto auto auto;
                 border: 2px solid lightgrey;
             }
             
@@ -12,29 +12,68 @@
                 vertical-align: middle;
             }
 
-            label, textarea{
+            div div{
                 border: 4px solid lightgrey;
             }
             
             textarea{
                 height: 6em;
+                border-left: 6px solid lightgrey;
             }
             
             label{
                 padding-top: 1.9em;
                 padding-bottom: 2.1em;
             }
-            
+
+            div.full{
+                width: 100vw;
+            }
+
+            div.half{
+                width: 50vw;
+            }
+
+            div.quarter{
+                width: 25vw;
+            }
+
+            /*textarea.full{
+                width: 
+            }*/
+
+            textarea.half{
+                width: 104vw;
+            }
+
+            textarea.quarter{
+                width: 52vw;
+            }
+
+            textarea.endQuarter{
+                width: 45vw;
+            }
+
         </style>
     </head>
     <body>
         <h1>Character Information</h1>
-        <div>
+        <div class="full">
             <form id="info">
                 <div class="grid-container">
-                    <div>
+                    <div class="half">
                         <label for="name">Name/Aliases
-                            <textarea id="name" cols="80em"></textarea>
+                            <textarea id="name" cols="104vw"></textarea>
+                        </label>
+                    </div>
+                    <div class="quarter">
+                        <label for="age">Age
+                            <textarea style="grid-area: 1 / 2 / 1 / 2;" id="age" cols="52vw"></textarea>
+                        </label>
+                    </div>
+                    <div class="quarter">
+                        <label for="sex">Sex/Gender
+                            <textarea style="grid-area: 1 / 3 / 1 / 3;" id="sex" cols="45vw"></textarea>
                         </label>
                     </div>
                 </div>
