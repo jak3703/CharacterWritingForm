@@ -1,0 +1,11 @@
+1. Create html page with option to create new or load old
+2. If create new, use already made html chart for data entry
+	a) save form data as JSON
+	b) save JS file in ./saves/[JSON foldername]/[JSON filename].js, such that content is var charData = JSON
+	c) get html string, modify it so that it includes <script src="./saves/[JSON filename]/[JSON filename].js">
+	d) save new html in same filepath
+3. If load old, get list of foldernames in ./save
+	a) load JSON values into html document
+	b) if modified, update data in JSON file
+
+4. Have a shortcut with page described in #1, and keep other files anywhere.

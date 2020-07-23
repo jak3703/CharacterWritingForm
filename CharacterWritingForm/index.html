@@ -38,9 +38,14 @@
                 resize: none;
             }
 
-            div.small textarea{
+            input{
+                width: 75%;
+                height: 8em;
+                border-left: 4px solid lightgrey;
+                border-right:4px solid lightgrey;
                 float: right;
             }
+
 
             div.small label{
                 float: left;
@@ -55,9 +60,6 @@
                 margin-top: 1%;
             }
 
-            div.full textarea{
-                float: right;
-            }
 
             button{
                 margin-left: 45vw;
@@ -66,6 +68,7 @@
             }
 
         </style>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     </head>
     <body>
         <h1>Character Information</h1>
@@ -74,81 +77,81 @@
                     <!-- [ID's 1 - 12] -->
                     <div id="1" class="small">
                         <label>Name/Aliases</label>
-                        <textarea name="name"></textarea>
+                        <textarea form="info" id="name" name="name"></textarea>
                     </div>
                     <div id="2" class="small">
                         <label>Age (biological, <br>chronological, etc.)</label>
-                        <textarea name="age"></textarea>
+                        <textarea form="info" id="age" name="age"></textarea>
                     </div>
                     <div id="3" class="small">
                         <label>Sex/Gender</label>
-                        <textarea name="sex"></textarea>
+                        <textarea form="info" id="sex" name="sex"></textarea>
                     </div>
                     <div id="4" class="small">
                         <label>Birthday/Birthsign</label>
-                        <textarea name="birthday"></textarea>
+                        <textarea form="info" id="birthday" name="birthday"></textarea>
                     </div>
                     <div id="5" class="small">
                         <label>Blood Type</label>
-                        <textarea name="bloodType"></textarea>
+                        <textarea form="info" id="bloodType" name="bloodType"></textarea>
                     </div>
                     <div id="6" class="small">
                         <label>Birthplace</label>
-                        <textarea name="birthplace"></textarea>
+                        <textarea form="info" id="birthplace" name="birthplace"></textarea>
                     </div>
                     <div id="7" class="small">
                         <label>Height</label>
-                        <textarea name="height"></textarea>
+                        <textarea form="info" id="height" name="height"></textarea>
                     </div>
                     <div id="8" class="small">
                         <label>Weight</label>
-                        <textarea name="weight"></textarea>
+                        <textarea form="info" id="weight" name="weight"></textarea>
                     </div>
                     <div id="9" class="small">
                         <label>Hair/Eye Color</label>
-                        <textarea name="h+eColor"></textarea>
+                        <textarea form="info" id="hairEyeColor" name="hairEyeColor"></textarea>
                     </div>
                     <div id="10" class="small">
                         <label>Eyesight/<br>colorblindness/<br>glasses</label>
-                        <textarea name="eyesight"></textarea>
+                        <textarea form="info" id="eyesight" name="eyesight"></textarea>
                     </div>
                     <div id="11" class="small">
                         <label>Handedness</label>
-                        <textarea name="handedness"></textarea>
+                        <textarea form="info" id="handedness" name="handedness"></textarea>
                     </div>
                     <div id="12" class="small">
                         <label>Type of Voice</label>
-                        <textarea name="voiceType"></textarea>
+                        <textarea form="info" id="voiceType" name="voiceType"></textarea>
                     </div>
                     <!-- [ID's 23 - 28] -->
                     <div id="23" class="small">
                         <label>Race</label>
-                        <textarea name="race"></textarea>
+                        <textarea form="info" id="race" name="race"></textarea>
                     </div>
                     <div id="24" class="small">
                         <label>Religion</label>
-                        <textarea name="religion"></textarea>
+                        <textarea form="info" id="religion" name="religion"></textarea>
                     </div>
                     <div id="25" class="small">
                         <label>Pets/Plants</label>
-                        <textarea name="pets"></textarea>
+                        <textarea form="info" id="pets" name="pets"></textarea>
                     </div>
                     <div id="26" class="full">
                         <label>Employment, recreations,<br>
                         hobbies, pastimes
                         </label>
-                        <textarea name="pastimes"></textarea>
+                        <textarea form="info" id="pastimes" name="pastimes"></textarea>
                     </div>
                     <div id="27" class="full">
                         <label>Special skills, powers,<br>
                         fighting styles, etc.</label>
-                        <textarea name="skills"></textarea>
+                        <textarea form="info" id="skills" name="skills"></textarea>
                     </div>
                     <div id="28" class="full">
                         <label>Likes/Dislikes:<br>
                         food, alcohol, drugs,<br>
                         fashion, brands, etc.</label>
-                        <textarea name="likesDislikes"></textarea>
+                        <textarea form="info" id="likesDislikes" name="likesDislikes"></textarea>
                     </div>
                     <!-- [ID's 13 - 22] -->
                     <div id="13" class="full">
@@ -156,61 +159,55 @@
                         Cavities/Illnesses<br>
                         Scars,Burns/Skin Damage<br>
                         Birthmarks, Tattoos</label>
-                        <textarea name="injuries"></textarea>
+                        <textarea form="info" id="injuries" name="injuries"></textarea>
                     </div>
                     <div id="14" class="full">
                         <label style="margin-top: 0.5% !important;">Other physical<br>characteristics<br>
                         nose+eye shape,<br>posture,
                         attractiveness,<br>birthmarks, etc.</label>
-                        <textarea name="miscPhysical"></textarea>
+                        <textarea form="info" id="miscPhysical" name="miscPhysical"></textarea>
                     </div>
                     <div id="15" class="full">
                         <label>Criminal records, awards,<br>
                         education</label>
-                        <textarea name="lifeRecords"></textarea>
+                        <textarea form="info" id="lifeRecords" name="lifeRecords"></textarea>
                     </div>
                     <div id="16" class="full">
-                        <label>Forming experience<br>
+                        <label>Forming experiences<br>
                         as a child/infant<br>(including who is involved)</label>
-                        <textarea name="formingExperience"></textarea>
+                        <textarea form="info" id="formingExperience" name="formingExperience"></textarea>
                     </div>
                     <div id="17" class="full">
                         <label>Love life,<br>lovers (past or present),<br>
                         thoughts about love/marriage</label>
-                        <textarea name="loveLife"></textarea>
+                        <textarea form="info" id="loveLife" name="loveLife"></textarea>
                     </div>
                     <div id="18" class="full">
                         <label>People the character<br>
                         admires/hates</label>
-                        <textarea name="admiresOrHates"></textarea>
+                        <textarea form="info" id="admiresOrHates" name="admiresOrHates"></textarea>
                     </div>
                     <div id="19" class="full">
                         <label>Dreams for the future</label>
-                        <textarea name="dreams"></textarea>
+                        <textarea form="info" id="dreams" name="dreams"></textarea>
                     </div>
                     <div id="20" class="full">
                         <label>Fears/Anxieties<br>(physical, irrational, etc.)</label>
-                        <textarea name="fears"></textarea>
+                        <textarea form="info" id="fears" name="fears"></textarea>
                     </div>
                     <div id="21" class="full">
                         <label>Personality traits,<br>
                         favorite sayings, habits,<br>
                         strengths/weaknesses</label>
-                        <textarea name="personalityTraits"></textarea>
+                        <textarea form="info" id="personalityTraits" name="personalityTraits"></textarea>
                     </div>
                     <div id="22" class="full">
                         <label>Significant relationships:<br>
                         family, friends, romantic,<br>mentor, problematic, etc.</label>
-                        <textarea name="relationships"></textarea>
+                        <textarea form="info" id="relationships" name="relationships"></textarea>
                     </div>
                 </div>
-                <button onclick="test()" form="info" type="submit">Submit</button>
+                <button id="button" form="info" type="submit">Submit</button>
             </form>
-            <script>
-                function test(){
-                    var name = document.getElementsByName("name");
-                    console.log(name);
-                }
-            </script>
     </body>
 </html>
