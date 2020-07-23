@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <style>
+            header{
+                text-align: center;
+            }
+            div.grid-container{
+                display: inline-grid;
+                grid-template-columns: auto auto;
+                margin-top: 10vh;
+            }
+            div.grid-container-container{
+                width: 100%;
+                text-align: center;
+            }
+            div.grid-item{
+                border: 4px solid lightgrey;
+            }
+            button{
+                margin-left:    3vw;
+                margin-right:   3vw;
+                margin-top:     1vh;
+                margin-bottom:  1vh;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <h1>Create a Character Traits Chart Here!</h1>
+            <h4>Choose one of the following:</h4>
+        </header>
+        <div class="grid-container-container">
+            <div class="grid-container">
+                <div class="grid-item">
+                    <button>Create New</button>
+                </div>
+                <div class="grid-item">
+                    <button>Upload Old</button>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
