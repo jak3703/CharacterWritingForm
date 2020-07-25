@@ -204,7 +204,51 @@
                         <textarea form="info" id="relationships" name="relationships"></textarea>
                     </div>
                 </div>
-                <button id="button" form="info" type="submit">Submit</button>
+                <button id="button" form="info" type="button">Submit</button>
             </form>
     </body>
+    <script>
+        $(document).ready(function (){
+            $("#button").click(function() {
+                let serializedCharacter = {};
+                $("textarea").each(function (index){
+                    serializedCharacter[$(this).attr("id")] = $(this).val();
+                });
+                //begin first ajax request
+                $.ajax({
+                    contentType: 'application/json',
+                    data: JSON.stringify(serializedCharacter),
+                    success: function(ret){
+                        console.log("Response Received:");
+                        console.log(typeof ret + ":" + ret);
+                        // begin second ajax request
+                        $.ajax({
+                            method: 'GET',
+                            contentType: 'application/json',
+                            url: '/generated-files/download/' + ret,
+                            success: function (ret){
+                                console.log("delete successful");
+                            },
+                            error: function (jqxhr, ts, err){
+                                console.log("something is wrong in delete");
+                                console.log(jqxhr);
+                                console.log("\n"+ts);
+                                console.log("\n"+err);
+                            }
+                        });
+                        // end second ajax request
+                    },
+                    error: function(jqxhr, textStatus, errorThrown){
+                        console.log("Something is not right");
+                        console.log(jqxhr);
+                        console.log("\n"+textStatus);
+                        console.log("\n"+errorThrown);
+                    },
+                    method: 'POST',
+                    url: '/generated-files'
+                });
+                //end first ajax request
+            });
+        });
+    </script>
 </html>
