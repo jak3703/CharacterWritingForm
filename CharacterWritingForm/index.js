@@ -72,6 +72,11 @@ app.post('/upload', function (req, res){
             if(err){
                 console.log(err);
             }
+            fs.unlink(path.join(filepath, file.name), function(err){
+                if(err){
+                    console.log(err);
+                }
+            });
         });
     });
 });
