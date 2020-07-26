@@ -221,22 +221,7 @@
                     success: function(ret){
                         console.log("Response Received:");
                         console.log(typeof ret + ":" + ret);
-                        // begin second ajax request
-                        $.ajax({
-                            method: 'GET',
-                            contentType: 'application/json',
-                            url: '/generated-files/download/' + ret,
-                            success: function (ret){
-                                console.log("delete successful");
-                            },
-                            error: function (jqxhr, ts, err){
-                                console.log("something is wrong in delete");
-                                console.log(jqxhr);
-                                console.log("\n"+ts);
-                                console.log("\n"+err);
-                            }
-                        });
-                        // end second ajax request
+                        document.location.href = '/generated-files/download/'+ret;
                     },
                     error: function(jqxhr, textStatus, errorThrown){
                         console.log("Something is not right");
