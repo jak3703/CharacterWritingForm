@@ -3,19 +3,29 @@ const fs = require("fs");
 const path = require("path");
 const bodyParser = require('body-parser');
 const uuid = require('uuid');
+const upload = require('express-fileupload');
 
 const app = express();
 
 app.use(bodyParser.json());
+app.use(upload({
+    limits: {fileSize: 1000000}
+}));
 
 app.get("/", function(req, res){
-    res.sendFile(path.join(__dirname, "index.html"));
-    res.status(200)
+    res.sendFile(path.join(__dirname, 'views', 'index.html'));
 });
 
 app.get("/public", function(req, res){
-    res.sendFile(path.join(__dirname, "public", "form.html"));
-    res.status(200)
+    res.sendFile(path.join(__dirname, 'views', 'form.html'));
+});
+
+app.get('/public/:characterData', function (req, res){
+    res.sendFile(path.join(__dirname, 'views', 'form.html'), function(err){
+        if(err){
+            console.log(err);
+        }
+    })
 });
 
 app.post("/generated-files", function(req, res){
@@ -34,26 +44,37 @@ app.post("/generated-files", function(req, res){
 
 app.get("/generated-files/download/:file", function(req, res){
     const fileName = req.params.file;
-    console.log(fileName);
     const filepath = path.join(__dirname, 'generated-files', fileName);
     res.download(filepath, fileName, function(err){
         if(err){
             console.log(err);
         }
-        /*
+        
         fs.unlink(filepath, function(err){
             if(err){
                 console.log(err);
             }
-        });*/
+        });
     });
 });
 
-app.get("/download-test", function(req, res){
-    res.download(path.join(__dirname, 'generated-files', '01a6cbe0-ce2d-11ea-86bc-092eb628bcba.json'), '01a6cbe0-ce2d-11ea-86bc-092eb628bcba.json');
-
+app.post('/upload', function (req, res){
+    if(!req.files || Object.keys(req.files).length === 0){
+        return res.status(400).send('No file was uploaded');
+    }
+    const file = req.files.uploadFile;
+    const filepath = path.join(__dirname, 'upload');
+    file.mv(path.join(filepath, file.name), function(err){
+        if(err){
+            console.log(err);
+        }
+        res.sendFile(path.join(filepath, file.name), function(err){
+            if(err){
+                console.log(err);
+            }
+        });
+    });
 });
-
 
 
 const PORT = process.env.PORT || 3000;

@@ -11,7 +11,9 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.1",
+    "express-fileupload": "^1.1.7-alpha.4",
     "path": "^0.12.7",
+    "pug": "^3.0.0",
     "uuid": "^8.2.0"
   }
 }

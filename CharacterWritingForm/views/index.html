@@ -24,7 +24,12 @@
                 margin-top:     1vh;
                 margin-bottom:  1vh;
             }
+            #uploader{
+                margin-top: 5vh;
+            }
         </style>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="http://malsup.github.com/jquery.form.js"></script>
     </head>
     <body>
         <header>
@@ -37,9 +42,25 @@
                     <button onclick="location.href='/public';">Create New</button>
                 </div>
                 <div class="grid-item">
-                    <button>Upload Old</button>
+                    <button id="upload-button">Upload Old</button>
                 </div>
             </div>
+            <form id="uploader", method="POST", action="/upload", enctype="multipart/form-data">
+            </form>
         </div>
+        <script type='text/javascript'>
+            $(document).ready(function(){
+                $('#upload-button').click(function (){
+                    $('#uploader').append('<input type="file", name="uploadFile">');
+                    $('#uploader').append('<input type="submit", value="Upload">');
+                });
+
+                $('#uploader').ajaxForm({
+                    success: function(ret){
+                        document.location.href = '/public/'+JSON.stringify(ret);
+                    }
+                });
+            });
+        </script>
     </body>
 </html>

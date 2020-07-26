@@ -209,12 +209,13 @@
     </body>
     <script>
         $(document).ready(function (){
+            //set button action
             $("#button").click(function() {
                 let serializedCharacter = {};
                 $("textarea").each(function (index){
                     serializedCharacter[$(this).attr("id")] = $(this).val();
                 });
-                //begin first ajax request
+                //begin ajax request
                 $.ajax({
                     contentType: 'application/json',
                     data: JSON.stringify(serializedCharacter),
@@ -232,8 +233,22 @@
                     method: 'POST',
                     url: '/generated-files'
                 });
-                //end first ajax request
+                //end ajax request
             });
+            //fill in textareas if applicable
+            let path = window.location.pathname;
+            path = path.split('/');
+            //console.log(path);
+            if(path.length == 3){
+                let jsonStr = path[2].replace(/%22/g, '\"');
+                jsonStr = jsonStr.replace('%7B', '{');
+                jsonStr = jsonStr.replace('%7D', '}');
+                const jsonData = JSON.parse(jsonStr);
+                const keys = Object.keys(jsonData);
+                keys.forEach(element => {
+                    $('textarea#'+element).val(jsonData[element]);
+                });
+            }
         });
     </script>
 </html>
